@@ -36,6 +36,11 @@ class ProjetController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            foreach ($projet->getEtudiants() as $etudiant){
+                $etudiant->addProjet($projet);
+            }
+
             $entityManager->persist($projet);
             $entityManager->flush();
 
@@ -64,9 +69,17 @@ class ProjetController extends AbstractController
     public function edit(Request $request, Projet $projet): Response
     {
         $form = $this->createForm(ProjetType::class, $projet);
+        foreach ($projet->getEtudiants() as $etudiant){
+            $etudiant->removeProjet($projet);
+        }
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            foreach ($projet->getEtudiants() as $etudiant){
+                $etudiant->addProjet($projet);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('projet_index');

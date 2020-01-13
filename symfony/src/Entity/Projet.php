@@ -36,9 +36,6 @@ class Projet
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Matiere", inversedBy="projets")
-     * @Assert\Count(
-     *      max=4,
-     *      maxMessage = "You can't have more than {{ limit }} students in  a project.")
      */
     private $matiere;
 
