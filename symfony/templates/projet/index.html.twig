@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.name }}</td>
-                <td>{{ projet.note }}</td>
+                <td>{{ projet.note }}/20</td>
                 <td>
                     <a class="btn btn-outline-dark mr-2" href="{{ path('projet_show', {'id': projet.id}) }}">Voir</a>
                     <a class="btn btn-secondary" href="{{ path('projet_edit', {'id': projet.id}) }}">Modifier</a>

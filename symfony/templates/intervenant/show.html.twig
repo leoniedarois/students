@@ -21,7 +21,15 @@
             </tr>
             <tr>
                 <th>Age</th>
-                <td>{{ intervenant.age }}</td>
+                <td>{{ intervenant.age }} ans</td>
+            </tr>
+            <tr>
+                <th>Matiere(s)</th>
+                <td>
+                    {% for matiere in intervenant.matieres %}
+                        <li>{{ matiere.name }}</li>
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>

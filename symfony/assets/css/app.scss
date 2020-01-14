@@ -1,8 +1,24 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 
+// CSS perso to complete Bootstrap
 body {
   height: 100vh;
   color: #424242;
+}
+
+input, select {
+  border: none;
+  margin-left: 20px;
+  border-bottom: 1px solid #424242;
+  background: transparent;
+}
+
+li {
+  list-style: none;
+}
+
+input[type='checkbox'] {
+  margin-right: 20px;
 }
 
 .nav-link {
@@ -25,6 +41,10 @@ body {
   margin-bottom: 20px;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+#etudiant, #projet, #matiere, #intervenant {
+  margin-bottom: 20px;
 }
 
 .footer {

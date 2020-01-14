@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Intervenant</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +19,11 @@
             <tr>
                 <td>{{ matiere.id }}</td>
                 <td>{{ matiere.name }}</td>
+                <td>
+                    {% if matiere.intervenant %}
+                        <li>{{ matiere.intervenant.firstname}} {{ matiere.intervenant.lastname}}</li>
+                    {% endif %}
+                </td>
                 <td>
                     <a class="btn btn-outline-dark mr-2" href="{{ path('matiere_show', {'id': matiere.id}) }}">Voir</a>
                     <a class="btn btn-secondary" href="{{ path('matiere_edit', {'id': matiere.id}) }}">Modifier</a>

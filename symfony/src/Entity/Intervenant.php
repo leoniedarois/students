@@ -21,21 +21,25 @@ class Intervenant
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull
      */
     private $age;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Matiere", mappedBy="intervenant")
+     * @Assert\NotNull
      * @Assert\Count(
      *      max=2,
      *      maxMessage = "Intervenant can't have more than {{ limit }} matieres.")

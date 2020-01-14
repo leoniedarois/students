@@ -26,6 +26,7 @@ class Projet
 
     /**
      * @ORM\Column(type="string", length=5)
+     * @Assert\NotNull
      * @Assert\Range(
      *      min = 0,
      *      max = 20,
@@ -37,11 +38,13 @@ class Projet
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Etudiant", mappedBy="projets")
+     * @Assert\NotNull
      */
     private $etudiants;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Matiere", inversedBy="projets")
+     * @Assert\NotNull
      */
     private $matiere;
 

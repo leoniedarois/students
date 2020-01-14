@@ -21,21 +21,25 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotNull
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotNull
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=3)
+     * @Assert\NotNull
      */
     private $age;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Projet", inversedBy="etudiants")
+     * @Assert\NotNull
      * @Assert\Count(
      *      max=4,
      *      maxMessage = "Students can't have more than {{ limit }} project.")
@@ -112,5 +116,18 @@ class Etudiant
         }
 
         return $this;
+    }
+
+    public function getProjectMoyenne()
+    {
+        $projectNumber = count($this->getProjets());
+        $sumScore = 0;
+        foreach($this->getProjets() as $value){
+            $sumScore += $value->getNote();
+        }
+        if($projectNumber == 0){
+            return $this->getFirstname() . " n'est dans aucun projet.";
+        }
+        return $sumScore/$projectNumber;
     }
 }

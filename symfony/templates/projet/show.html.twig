@@ -12,22 +12,24 @@
                 <td>{{ projet.id }}</td>
             </tr>
             <tr>
-                <th>Name :</th>
+                <th>Name </th>
                 <td>{{ projet.name }}</td>
             </tr>
             <tr>
-                <th>Note :</th>
-                <td>{{ projet.note }}</td>
+                <th>Note </th>
+                <td>{{ projet.note }}/20</td>
             </tr>
             <tr>
-                <th>Matiere :</th>
+                <th>Matiere </th>
                 <td>{{ projet.matiere.name }}</td>
             </tr>
             <tr>
-                <th>Etudiants :</th>
-                {% for etudiant in projet.etudiants %}
-                    <td>{{ etudiant.firstname }}</td>
-                {% endfor %}
+                <th>Etudiant(s) </th>
+                <td>
+                    {% for etudiant in projet.etudiants %}
+                        <li>{{ etudiant.firstname }} {{ etudiant.lastname }}</li>
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>
