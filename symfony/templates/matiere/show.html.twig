@@ -3,7 +3,7 @@
 {% block title %}Matiere{% endblock %}
 
 {% block body %}
-    <h1>Matiere</h1>
+    <h1 class="h1Style">Matiere : {{ matiere.name }}</h1>
 
     <table class="table">
         <tbody>
@@ -17,10 +17,9 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('matiere_index') }}">back to list</a>
-
-    <a href="{{ path('matiere_edit', {'id': matiere.id}) }}">edit</a>
-
-    {{ include('matiere/_delete_form.html.twig') }}
+    <div class="d-flex">
+        <a class="btn btn-outline-dark mr-2" href="{{ path('matiere_index') }}">Retour</a>
+        <a class="btn btn-secondary mr-2" href="{{ path('matiere_edit', {'id': matiere.id}) }}">Modifier</a>
+        {{ include('matiere/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

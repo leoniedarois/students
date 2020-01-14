@@ -26,6 +26,12 @@ class Projet
 
     /**
      * @ORM\Column(type="string", length=5)
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 20,
+     *      minMessage = "Minimum is {{ limit }}/20",
+     *      maxMessage = "Maximum is {{ limit }}/20"
+     * )
      */
     private $note;
 

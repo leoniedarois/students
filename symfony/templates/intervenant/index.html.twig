@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Intervenant index{% endblock %}
+{% block title %}Intervenants{% endblock %}
 
 {% block body %}
-    <h1>Intervenant index</h1>
+    <h1 class="h1Style">Intervenants</h1>
 
     <table class="table">
         <thead>
@@ -23,17 +23,17 @@
                 <td>{{ intervenant.lastname }}</td>
                 <td>{{ intervenant.age }}</td>
                 <td>
-                    <a href="{{ path('intervenant_show', {'id': intervenant.id}) }}">show</a>
-                    <a href="{{ path('intervenant_edit', {'id': intervenant.id}) }}">edit</a>
+                    <a class="btn btn-outline-dark mr-2" href="{{ path('intervenant_show', {'id': intervenant.id}) }}">Voir</a>
+                    <a class="btn btn-secondary" href="{{ path('intervenant_edit', {'id': intervenant.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">pas d'intervenant trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('intervenant_new') }}">Create new</a>
+    <a class="btn btn-success" href="{{ path('intervenant_new') }}">Ajouter</a>
 {% endblock %}

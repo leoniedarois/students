@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Projet index{% endblock %}
+{% block title %}Projets{% endblock %}
 
 {% block body %}
-    <h1>Projet index</h1>
+    <h1 class="h1Style">Projets</h1>
 
     <table class="table">
         <thead>
@@ -21,17 +21,17 @@
                 <td>{{ projet.name }}</td>
                 <td>{{ projet.note }}</td>
                 <td>
-                    <a href="{{ path('projet_show', {'id': projet.id}) }}">show</a>
-                    <a href="{{ path('projet_edit', {'id': projet.id}) }}">edit</a>
+                    <a class="btn btn-outline-dark mr-2" href="{{ path('projet_show', {'id': projet.id}) }}">Voir</a>
+                    <a class="btn btn-secondary" href="{{ path('projet_edit', {'id': projet.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">pas de projet trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('projet_new') }}">Create new</a>
+    <a class="btn btn-success" href="{{ path('projet_new') }}">Ajouter</a>
 {% endblock %}

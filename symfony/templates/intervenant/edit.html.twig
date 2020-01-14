@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Intervenant{% endblock %}
+{% block title %}Modifier l'intervenant{% endblock %}
 
 {% block body %}
-    <h1>Edit Intervenant</h1>
-
+    <h1 class="h1Style">Modifier l'intervenant</h1>
     {{ include('intervenant/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="d-flex">
+        <a class="btn btn-outline-dark mr-2" href="{{ path('intervenant_index') }}">Retour</a>
+        {{ include('intervenant/_delete_form.html.twig') }}
+    </div>
 
-    <a href="{{ path('intervenant_index') }}">back to list</a>
-
-    {{ include('intervenant/_delete_form.html.twig') }}
 {% endblock %}
